@@ -1,0 +1,58 @@
+.hikes {
+    display: flex;
+    flex-direction: column;
+    gap: 3.063em;
+}
+
+.title {
+    font-size: 4.25rem;
+    color: var(--white);
+    font-weight: 400;
+}
+
+.title--accent {
+    display: block;
+    color: var(--yellow);
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-top: 1.273em;
+    margin-bottom: 0.5em;
+}
+
+@media (min-width: 780px) {
+
+    .hero {
+        height: 600px;
+        background-image: url('/src/assets/hero-big.png');
+        background-position: center;
+    }
+
+    .hero__cover {
+        width: 45%;
+        background: #00000099;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        margin-top: 1.5em;
+        margin-bottom: 0.773em;
+    }
+
+    .hikes {
+        gap: 2.188em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .title {
+        font-size: 4.25rem;
+    }
+}

@@ -1,0 +1,34 @@
+.explore_content {
+    display: flex;
+    gap: 2.25em;
+}
+
+.explore__list {
+    display: flex;
+    flex-direction: column;
+    gap: 3.563em;
+}
+
+@media (min-width: 780px) {
+    .explore__list {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .explore_content {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .explore__list {
+        width: 50%;
+        gap: 3.563em;
+    }
+
+    .explore__map {
+        width: 40vw;
+        height: 100vh;
+        background: var(--green-hike);
+    }
+}

@@ -1,0 +1,85 @@
+.hike-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.hike-card__image {
+    height: 400px;
+}
+
+.hike-card__title {
+    font-size: 2.875rem;
+    font-weight: 600;
+    margin-top: 1em;
+    margin-bottom: 0.174em;
+}
+
+.hike-card__info {
+    font-size: 1.563rem;
+    font-weight: 600;
+    line-height: 30.26px;
+}
+
+.hike-card__description {
+    font-size: 1.375rem;
+    line-height: 2.063rem;
+    margin-block: 1em;
+}
+
+.hike-card__learn-more {
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding: 0.446em 0.889em;
+    background: var(--green-hike);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.hike-card__learn-more:hover {
+    background: var(--green-hike-2);
+}
+
+@media (min-width: 780px) {
+
+    .hike-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 3em;
+    }
+
+    .hike-card.invert {
+        flex-direction: row-reverse;
+    }
+
+    .hike-card__img-container {
+        width: 60%;
+    }
+
+    .hike-card__img-container .hike-card__image {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        margin: 0 auto;
+    }
+
+    .hike-card__title {
+        margin-top: 0;
+    }
+
+    .hike-card__text {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .hike-card {
+        gap: 6em;
+    }
+
+    .hike-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 6em;
+    }
+}

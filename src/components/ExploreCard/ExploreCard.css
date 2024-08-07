@@ -1,0 +1,45 @@
+.explore-card {
+    position: relative;
+}
+
+.explore-card__title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.explore-card__rate {
+    font-size: 1.875rem;
+    margin-top: 0.767em;
+    margin-bottom: 1.533em;
+}
+
+.explore-card__description {
+    font-size: 1.625rem;
+    line-height: 39px2.438rem;
+    letter-spacing: -0.02em;
+    color: var(--light-gray-2);
+}
+
+.explore-card__thumbnail {
+    margin-bottom: 2.813em;
+}
+
+@media (min-width: 780px) {
+
+    .explore-card__title {
+        width: 60%;
+    }
+
+    .explore-card__thumbnail {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 144px;
+        height: 111px;
+    }
+
+    .explore-card__rate {
+        margin-top: 0.6em;
+        margin-bottom: 1em;
+    }
+}
