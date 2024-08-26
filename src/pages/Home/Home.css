@@ -4,22 +4,7 @@
     gap: 3.063em;
 }
 
-.title {
-    font-size: 4.25rem;
-    color: var(--white);
-    font-weight: 400;
-}
-
-.title--accent {
-    display: block;
-    color: var(--yellow);
-    font-weight: 600;
-}
-
 .subtitle {
-    font-size: 44px;
-    font-weight: 700;
-    color: var(--dark-gray);
     margin-top: 1.273em;
     margin-bottom: 0.5em;
 }
@@ -35,10 +20,6 @@
     .hero__cover {
         width: 45%;
         background: #00000099;
-    }
-
-    .title {
-        font-size: 2rem;
     }
 
     .subtitle {

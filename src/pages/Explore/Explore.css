@@ -1,4 +1,10 @@
-.explore_content {
+
+.explore__subtitle {
+    margin-top: 1.386em;
+    margin-bottom: 0.727em;
+}
+
+.explore__content {
     display: flex;
     gap: 2.25em;
 }
@@ -9,14 +15,23 @@
     gap: 3.563em;
 }
 
+.explore__map {
+    display: none;
+}
+
 @media (min-width: 780px) {
+    .explore__subtitle {
+        margin-top: 1.477em;
+        margin-bottom: 1.75em;
+    }
+    
     .explore__list {
         width: 60%;
     }
 }
 
 @media (min-width: 1200px) {
-    .explore_content {
+    .explore__content {
         width: 100%;
         margin: 0 auto;
     }

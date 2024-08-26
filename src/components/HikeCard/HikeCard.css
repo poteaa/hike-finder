@@ -5,6 +5,14 @@
 
 .hike-card__image {
     height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.hike-card__text {
+    display: flex;
+    flex-direction: column;
 }
 
 .hike-card__title {
@@ -33,6 +41,7 @@
     background: var(--green-hike);
     color: var(--white);
     text-decoration: none;
+    width: fit-content;
 }
 
 .hike-card__learn-more:hover {
@@ -55,15 +64,20 @@
         width: 60%;
     }
 
-    .hike-card__img-container .hike-card__image {
+    .hike-card__image {
         width: 100%;
         object-fit: cover;
         object-position: center;
         margin: 0 auto;
+        height: 480px;
     }
 
     .hike-card__title {
         margin-top: 0;
+    }
+
+    .hike-card__description {
+        margin-block: 1.545em;
     }
 
     .hike-card__text {
@@ -72,10 +86,6 @@
 }
 
 @media (min-width: 1200px) {
-
-    .hike-card {
-        gap: 6em;
-    }
 
     .hike-card {
         flex-direction: row;

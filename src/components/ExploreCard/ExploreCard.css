@@ -2,6 +2,12 @@
     position: relative;
 }
 
+.explore-card__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .explore-card__title {
     font-size: 2rem;
     font-weight: 700;
@@ -9,8 +15,8 @@
 
 .explore-card__rate {
     font-size: 1.875rem;
-    margin-top: 0.767em;
-    margin-bottom: 1.533em;
+    margin-top: 0.466em;
+    margin-bottom: 1em;
 }
 
 .explore-card__description {
@@ -22,18 +28,24 @@
 
 .explore-card__thumbnail {
     margin-bottom: 2.813em;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
-@media (min-width: 780px) {
+@media (min-width: 1200px) {
 
+    .explore-card__header {
+        margin-bottom: 1.533em;
+    }
     .explore-card__title {
         width: 60%;
     }
 
     .explore-card__thumbnail {
-        position: absolute;
-        right: 0;
-        top: 0;
+        /* position: absolute; */
+        /* right: 0;
+        top: 0; */
         width: 144px;
         height: 111px;
     }

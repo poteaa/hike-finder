@@ -3,10 +3,12 @@ import ExploreCard from "../../components/ExploreCard/ExploreCard"
 import './Explore.css'
 
 export default function Explore() {
+    const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+    
     return (
         <section className="explore container">
-            <h2 className="subtitle">Explore Curated Trails Near You</h2>
-            <div className="explore_content">
+            <h2 className="subtitle explore__subtitle">Explore Curated Trails Near You</h2>
+            <div className="explore__content">
                 <div className="explore__list">
                     <ExploreCard
                         title="Tryon Creek State Area"
@@ -28,15 +30,18 @@ export default function Explore() {
                     />
                 </div>
                 <div className="explore__map">
-                    <iframe
-                        width="600"
-                        height="450"
-                        loading="lazy"
-                        allowFullScreen
-                        referrerPolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAguDMogQCf1IDH5-t2i4wmaUWdN0tur-A
-                            &q=Space+Needle,Seattle+WA">
+                    {apiKey ? (
+                        <iframe
+                            width="600"
+                            height="450"
+                            loading="lazy"
+                            allowFullScreen
+                            referrerPolicy="no-referrer-when-downgrade"
+                            src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=Space+Needle,Seattle+WA`}>
                         </iframe>
+                    ) : (
+                        <p>Google Maps API key not found. Please add your API key to the .env file.</p>
+                    )}
                 </div>
             </div>
         </section>
