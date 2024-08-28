@@ -13,7 +13,8 @@ const SearchContext = createContext()
 export default function Layout() {
     const [search, setSearch] = useState()
     console.log('rendering layout...')
-    let location = useLocation()
+    const location = useLocation()
+    const isExplorePage = location.pathname === '/explore'
     console.log('location.pathname: ', location.pathname)
 
     return (
@@ -21,13 +22,16 @@ export default function Layout() {
             <Header />
             <main>
                 <section className="hero">
-                    <div className="hero__cover">
-                        <h1 className="title container">
+                    <div className="hero__cover container">
+                        <h1 className="title">
                             Find Your Next <span className="title--accent">Adventure</span>
                         </h1>
-                    </div>
-                    <div className="search-container container">
-                        {location.pathname === '/' && <Search searchCb={setSearch} />}
+                        <p className={`hero__description ${isExplorePage && 'explore'}`}>
+                            Your next hiking adventure awaits. Get on the trail with detailed maps and updates shared by hikers like you.
+                        </p>
+                        <div className="search-container">
+                            {location.pathname === '/' && <Search searchCb={setSearch} />}
+                        </div>
                     </div>
                 </section>
                 <Outlet />
