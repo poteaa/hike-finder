@@ -7,6 +7,7 @@
 .explore__content {
     display: flex;
     gap: 2.25em;
+    justify-content: center;
 }
 
 .explore__list {
@@ -23,17 +24,25 @@
     .explore__subtitle {
         margin-top: 1.477em;
         margin-bottom: 1.75em;
+        text-align: center;
     }
     
     .explore__list {
-        width: 60%;
+        max-width: 600px;
+        text-align: center;
     }
 }
 
 @media (min-width: 1200px) {
+
+    .explore__subtitle {
+        text-align: left;
+    }
+
     .explore__content {
         width: 100%;
         margin: 0 auto;
+        justify-content: normal;
     }
 
     .explore__list {

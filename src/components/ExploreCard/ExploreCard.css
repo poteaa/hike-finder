@@ -17,6 +17,13 @@
     font-size: 1.875rem;
     margin-top: 0.466em;
     margin-bottom: 1em;
+    display: flex;
+    gap: 0.35em;
+}
+
+.explore-card__rate-icon {
+    width: 34px;
+    height: 28px;
 }
 
 .explore-card__description {
