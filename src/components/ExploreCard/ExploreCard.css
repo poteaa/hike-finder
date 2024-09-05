@@ -1,5 +1,6 @@
 .explore-card {
     position: relative;
+    text-align: left;
 }
 
 .explore-card__header {
@@ -28,7 +29,7 @@
 
 .explore-card__description {
     font-size: 1.625rem;
-    line-height: 39px2.438rem;
+    line-height: 2.438rem;
     letter-spacing: -0.02em;
     color: var(--light-gray-2);
 }
@@ -43,16 +44,14 @@
 @media (min-width: 1200px) {
 
     .explore-card__header {
-        margin-bottom: 1.533em;
+        flex-direction: row-reverse;
+        justify-content: space-between;
     }
     .explore-card__title {
         width: 60%;
     }
 
     .explore-card__thumbnail {
-        /* position: absolute; */
-        /* right: 0;
-        top: 0; */
         width: 144px;
         height: 111px;
     }

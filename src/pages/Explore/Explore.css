@@ -28,7 +28,7 @@
     }
     
     .explore__list {
-        max-width: 600px;
+        max-width: 560px;
         text-align: center;
     }
 }
@@ -46,8 +46,8 @@
     }
 
     .explore__list {
-        width: 50%;
-        gap: 3.563em;
+        width: 40%;
+        gap: 5.875em;
     }
 
     .explore__map {
