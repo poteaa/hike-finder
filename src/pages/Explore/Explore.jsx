@@ -1,6 +1,7 @@
 import ExploreCard from "../../components/ExploreCard/ExploreCard"
 
 import './Explore.css'
+import mapNotFoundKey from '/src/assets//map-not-found-key.png'; // Import the image for API key not found
 
 export default function Explore() {
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
@@ -46,7 +47,13 @@ export default function Explore() {
                             src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=Space+Needle,Seattle+WA`}>
                         </iframe>
                     ) : (
-                        <p>Google Maps API key not found. Please add your API key to the .env file.</p>
+                        <div className="map-not-found__container">
+                            <img src={mapNotFoundKey} alt="Image not found" className="map-not-found__image" />
+                            <div className="map-not-found__text-container">
+                                <p className="map-not-found__text">Google Maps API key not found.</p>
+                            </div>
+                        </div>
+                        
                     )}
                 </div>
             </div>

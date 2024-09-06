@@ -42,17 +42,41 @@
     .explore__content {
         width: 100%;
         margin: 0 auto;
-        justify-content: normal;
+        justify-content: space-between;
     }
 
     .explore__list {
-        width: 40%;
+        flex-basis: 40%;
         gap: 5.875em;
     }
 
     .explore__map {
-        width: 40vw;
-        height: 100vh;
-        background: var(--green-hike);
+        display: block;
+        flex-basis: 60%;
+    }
+
+    .map-not-found__container {
+        position: relative;
+    }
+
+    .map-not-found__image {
+        width: 100%;
+        filter: brightness(20%);
+    }
+
+    .map-not-found__text-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .map-not-found__text {
+        font-size: 2rem;
+        color: red;
     }
 }
