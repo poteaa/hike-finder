@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { Link, NavLink } from 'react-router-dom'
 
 import Hamburger from '../Hamburger/Hamburger'
@@ -22,11 +24,12 @@ export default function Header({ onLoginClick }) {
                         <button className="header__menu-link link-btn">SIGN UP</button>
                     </li>
                     <li>
-                        <button className="header__menu-link link-btn" onClick={onLoginClick()}>LOG IN</button>
+                        <button className="header__menu-link link-btn" onClick={onLoginClick}>LOG IN</button>
                     </li>
                 </ul>
             </nav>
-            <Hamburger />
+            <Hamburger onLoginClick={onLoginClick} />
         </header>  
     )
 }
+

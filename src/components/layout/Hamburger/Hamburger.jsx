@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import './Hamburger.css'
 
-export default function Hamburger() {
+export default function Hamburger({ onLoginClick }) {
     const [isOpen, setIsOpen] = useState(false)
     const menuId = useId()
 
@@ -41,7 +41,12 @@ export default function Hamburger() {
                         <button className="hamburger-menu__link hamburger-menu__btn">SIGN UP</button>
                     </li>
                     <li>
-                        <button className="hamburger-menu__link hamburger-menu__btn">LOG IN</button>
+                        <button
+                            className="hamburger-menu__link hamburger-menu__btn"
+                            onClick={onLoginClick}
+                        >
+                            LOG IN
+                        </button>
                     </li>
                 </ul>
             </nav>

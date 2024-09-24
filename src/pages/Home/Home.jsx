@@ -12,7 +12,6 @@ export default function Home() {
 
     useEffect(() => {
         async function fetchData() {
-            console.log('searching... search: ', search)
             let data
             let city
             if (search) ([data, city] = await getHikesByCity(search))

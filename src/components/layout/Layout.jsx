@@ -14,18 +14,14 @@ const SearchContext = createContext()
 
 export default function Layout() {
     const [search, setSearch] = useState()
+    const [showModal, setShowModal] = useState(false)
     console.log('rendering layout...')
     const location = useLocation()
     const isExplorePage = location.pathname === '/explore'
-    console.log('location.pathname: ', location.pathname)
-
-    const onLoginClick = () => {
-        console.log('onLoginClick')
-    }
 
     return (
         <SearchContext.Provider value={{search}}>
-            <Header onLoginClick={() => onLoginClick} />
+            <Header onLoginClick={() => setShowModal(true)} />
             <main>
                 <section className="hero">
                     <div className="hero__cover container">
@@ -60,9 +56,9 @@ export default function Layout() {
                 </section>
             </main>
             <Footer />
-            <Modal>
-                <Login></Login>
-            </Modal>
+            {showModal && <Modal isOpen={showModal} closeModal={() => setShowModal(false)}>
+                <Login onClose={() => setShowModal(false)}></Login>
+            </Modal>}
         </SearchContext.Provider>
     )
 }
