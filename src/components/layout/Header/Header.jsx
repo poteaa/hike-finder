@@ -4,7 +4,7 @@ import Hamburger from '../Hamburger/Hamburger'
 
 import './Header.css'
 
-export default function Header() {
+export default function Header({ onLoginClick }) {
     return (
         <header className="header container">
             <Link to="/" className='header__link'>
@@ -19,8 +19,10 @@ export default function Header() {
                         <NavLink to="/explore" className="header__menu-link">EXPLORE</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/signup" className="header__menu-link link-btn">SIGN UP</NavLink>
-                        <NavLink to="/login" className="header__menu-link link-btn">LOG IN</NavLink>
+                        <button className="header__menu-link link-btn">SIGN UP</button>
+                    </li>
+                    <li>
+                        <button className="header__menu-link link-btn" onClick={onLoginClick()}>LOG IN</button>
                     </li>
                 </ul>
             </nav>

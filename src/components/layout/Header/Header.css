@@ -6,10 +6,6 @@
     padding-bottom: 1.438em;
   }
   
-  .header__link {
-    text-decoration: none;
-  }
-  
   .header__title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -17,20 +13,15 @@
   }
   
   .header__main-nav {
-    flex-grow: 1;
-    text-align: right;
-    z-index: 100;
     display: none;
+    z-index: 100;
   }
   
   @media (min-width: 780px) {
   
-    .navigation {
-      display: flex;
-    }
-  
     .header__main-nav {
       display: flex;
+      flex-grow: 1;
       justify-content: flex-end;
     }
   
@@ -38,6 +29,10 @@
       display: flex;
       gap: 1.563em;
       list-style-type: none;
+    }
+
+    .header__menu-list li {
+      display: flex;
     }
   
     .header__menu-link {
@@ -54,23 +49,8 @@
       }
   
     .link-btn {
-      padding: 0.433em 0.75em;
       border-radius: 0.25em;
       font-weight: 700;
-    }
-  
-    .header__menu-link.link-btn:nth-child(1) {
-      background: var(--green-hike);
-      color: var(--white);
-      border: 2px solid var(--green-hike);
-      margin-right: 1.125em;
-    }
-  
-    .header__menu-link.link-btn:nth-child(2) {
-      background: var(--white);
-      color: var(--black);
-      border: 2px solid var(--black);
-      box-sizing: border-box;
     }
     
     .hamburger-menu {
@@ -81,10 +61,6 @@
 
   @media (min-width: 1200px) {
   
-    .navigation {
-      display: flex;
-    }
-  
     .header__main-nav {
       display: flex;
       justify-content: flex-end;
@@ -92,35 +68,25 @@
   
     .header__menu-list {
       display: flex;
-      gap: 2.563em;
+      gap: 0;
       list-style-type: none;
     }
   
     .header__menu-link {
       font-size: 1.5rem;
+      padding: 0.833em 1.5em;
       font-weight: 600;
       text-decoration: none;
       color: var(--black);
     }
 
     .link-btn {
-      padding: 0.833em 1.5em;
       border-radius: 0.25em;
       font-weight: 700;
     }
   
     .header__menu-link.link-btn:nth-child(1) {
-      background: var(--green-hike);
-      color: var(--white);
-      border: 2px solid var(--green-hike);
-      margin-right: 1.125em;
-    }
-  
-    .header__menu-link.link-btn:nth-child(2) {
-      background: var(--white);
-      color: var(--black);
-      border: 2px solid var(--black);
-      box-sizing: border-box;
+      margin-left: 1.125em;
     }
     
     .hamburger-menu {

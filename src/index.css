@@ -27,6 +27,10 @@ body {
   min-width: 550px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .container {
    padding: 0 1.438em;
 }

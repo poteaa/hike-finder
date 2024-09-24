@@ -2,9 +2,11 @@ import { createContext, useState } from "react"
 import { Outlet, Link, useLocation } from "react-router-dom"
 import InfoCard from "../InfoCard/InfoCard"
 import Search from "../Search/Search"
+import Login from "../auth/Login"
 
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
+import Modal from '../modal/Modal'
 
 import './Layout.css'
 
@@ -17,9 +19,13 @@ export default function Layout() {
     const isExplorePage = location.pathname === '/explore'
     console.log('location.pathname: ', location.pathname)
 
+    const onLoginClick = () => {
+        console.log('onLoginClick')
+    }
+
     return (
         <SearchContext.Provider value={{search}}>
-            <Header />
+            <Header onLoginClick={() => onLoginClick} />
             <main>
                 <section className="hero">
                     <div className="hero__cover container">
@@ -54,6 +60,9 @@ export default function Layout() {
                 </section>
             </main>
             <Footer />
+            <Modal>
+                <Login></Login>
+            </Modal>
         </SearchContext.Provider>
     )
 }

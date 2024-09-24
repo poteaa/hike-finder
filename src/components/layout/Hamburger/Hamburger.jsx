@@ -38,10 +38,10 @@ export default function Hamburger() {
                         <NavLink to="/explore" className="hamburger-menu__link">EXPLORE</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/signup" className="hamburger-menu__link">SIGN UP</NavLink>
+                        <button className="hamburger-menu__link hamburger-menu__btn">SIGN UP</button>
                     </li>
                     <li>
-                        <NavLink to="/login" className="hamburger-menu__link">LOG IN</NavLink>
+                        <button className="hamburger-menu__link hamburger-menu__btn">LOG IN</button>
                     </li>
                 </ul>
             </nav>
