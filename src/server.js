@@ -2,7 +2,8 @@ import { createServer, Model } from "miragejs"
 
 createServer({
     models: {
-        hikes: Model
+        hikes: Model,
+        users: Model
     },
     seeds(server) {
         server.create("hike", {
@@ -55,6 +56,11 @@ createServer({
             description: "Landåsfjellet is a lower plateau south of Ulriken/Haugavarden which offers numerous trails, and is almost a separate hiking region by its own.",
             imgSrc: "/src/assets/nemocon-salt-mine.jpg"
         })
+        server.create("user", {
+            id: "1",
+            username: "admin",
+            password: "12345"
+        })
     },
     routes() {
         this.namespace = "api"
@@ -65,12 +71,26 @@ createServer({
                 const allHikes = schema.hikes.all().models
                 return allHikes.filter(hike => hike.city.toLowerCase().includes(city.toLowerCase()))
             }
-            return schema.hikes.all()
+            return schema.hikes.all().models
         })
         
         this.get("/hikes/:id", (schema, request) => {
             const id = request.params.id
-            return schema.hikes.find(id)
+            const hike = schema.hikes.find(id)
+            if (!hike) {
+                return new Response(404, { some: 'header' }, { errors: ['Resource not found'] })
+            }
+            return schema.hikes.find(id).models
+        })
+
+        this.post("/login", (schema, request) => {
+            const { username, password } = JSON.parse(request.requestBody)
+            const user = schema.users.findBy({ username })
+            if (!user || user.password !== password) {
+                throw new Error("Invalid username or password")
+            }
+        
+            return { token: "123456", error: null, code: 200 }
         })
     }
 })

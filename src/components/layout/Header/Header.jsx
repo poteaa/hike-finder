@@ -1,12 +1,13 @@
-import PropTypes from 'prop-types';
-
+import { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
+import { AppContext } from '../Layout'
 import Hamburger from '../Hamburger/Hamburger'
 
 import './Header.css'
 
 export default function Header({ onLoginClick }) {
+    const { isLoggedIn } = useContext(AppContext)
     return (
         <header className="header container">
             <Link to="/" className='header__link'>
@@ -24,7 +25,7 @@ export default function Header({ onLoginClick }) {
                         <button className="header__menu-link link-btn">SIGN UP</button>
                     </li>
                     <li>
-                        <button className="header__menu-link link-btn" onClick={onLoginClick}>LOG IN</button>
+                        <button className="header__menu-link link-btn" onClick={onLoginClick}>{isLoggedIn ? 'LOG OUT' : 'LOG IN'}</button>
                     </li>
                 </ul>
             </nav>

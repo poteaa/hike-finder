@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { SearchContext } from '../../components/layout/Layout'
+import { AppContext } from '../../components/layout/Layout'
 
 import './Home.css'
 import HikeCard from '../../components/HikeCard/HikeCard'
@@ -8,7 +8,7 @@ import { getHikes, getHikesByCity } from '../../services/api'
 export default function Home() {
     const [hikes, setHikes] = useState([])
     const [city, setCity] = useState('')
-    const {search} = useContext(SearchContext)
+    const {search} = useContext(AppContext)
 
     useEffect(() => {
         async function fetchData() {

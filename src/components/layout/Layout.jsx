@@ -3,6 +3,7 @@ import { Outlet, Link, useLocation } from "react-router-dom"
 import InfoCard from "../InfoCard/InfoCard"
 import Search from "../Search/Search"
 import Login from "../auth/Login"
+import { logout } from "../../services/api"
 
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
@@ -10,18 +11,28 @@ import Modal from '../modal/Modal'
 
 import './Layout.css'
 
-const SearchContext = createContext()
+const AppContext = createContext()
 
 export default function Layout() {
     const [search, setSearch] = useState()
     const [showModal, setShowModal] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     console.log('rendering layout...')
     const location = useLocation()
     const isExplorePage = location.pathname === '/explore'
 
+    const handleLogin = () => {
+        if (isLoggedIn) {
+            setIsLoggedIn(false)
+            logout()
+        } else {
+            setShowModal(true)
+        }
+    }
+
     return (
-        <SearchContext.Provider value={{search}}>
-            <Header onLoginClick={() => setShowModal(true)} />
+        <AppContext.Provider value={{search, isLoggedIn, setIsLoggedIn}}>
+            <Header onLoginClick={handleLogin} />
             <main>
                 <section className="hero">
                     <div className="hero__cover container">
@@ -59,8 +70,8 @@ export default function Layout() {
             {showModal && <Modal isOpen={showModal} closeModal={() => setShowModal(false)}>
                 <Login onClose={() => setShowModal(false)}></Login>
             </Modal>}
-        </SearchContext.Provider>
+        </AppContext.Provider>
     )
 }
 
-export { SearchContext }
+export { AppContext }
