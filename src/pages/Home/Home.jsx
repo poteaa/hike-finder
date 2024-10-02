@@ -24,7 +24,7 @@ export default function Home() {
 
     return (
         <section className="container">
-            {hikes.length &&
+            {hikes && hikes.length &&
                 <>
                     <h2 className="subtitle">{search ? `Hikes near ${city}` : 'Hikes'}</h2>
                     <div className="hikes">{
@@ -37,7 +37,7 @@ export default function Home() {
                         )}
                 </div></>
             }
-            {!hikes.length && search &&
+            {!hikes && search &&
                 <h2 className="subtitle text-center">No results found for <span className="error-text">{search}</span></h2>
             }
         </section>
