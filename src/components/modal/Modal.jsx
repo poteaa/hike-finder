@@ -1,7 +1,7 @@
 import './Modal.css'
 
-  const Modal = ({ children, closeModal }) => {
-
+// eslint-disable-next-line react/prop-types
+const Modal = ({ children }) => {
   return (
     <div className='modal'>
       {children}

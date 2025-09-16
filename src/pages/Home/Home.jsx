@@ -4,11 +4,13 @@ import { AppContext } from '../../components/layout/Layout'
 import './Home.css'
 import HikeCard from '../../components/HikeCard/HikeCard'
 import { getHikes, getHikesByCity } from '../../services/api'
+import LoadingSpinner from '../../components/loadingSpinner/LoadingSpinner'
 
 export default function Home() {
     const [hikes, setHikes] = useState([])
     const [city, setCity] = useState('')
     const {search} = useContext(AppContext)
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchData() {
@@ -18,13 +20,15 @@ export default function Home() {
             else data = await getHikes()
             city ? setCity(city) : setCity('')
             setHikes(data)
+            setLoading(false)
         }
         fetchData()
     }, [search])
 
     return (
         <section className="container">
-            {hikes && hikes.length &&
+            {loading ? <LoadingSpinner /> :
+            hikes && hikes.length &&
                 <>
                     <h2 className="subtitle">{search ? `Hikes near ${city}` : 'Hikes'}</h2>
                     <div className="hikes">{

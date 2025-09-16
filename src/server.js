@@ -72,7 +72,7 @@ createServer({
                 return allHikes.filter(hike => hike.city.toLowerCase().includes(city.toLowerCase()))
             }
             return schema.hikes.all().models
-        })
+        }, { timing: 2000 })
         
         this.get("/hikes/:id", (schema, request) => {
             const id = request.params.id
@@ -81,7 +81,7 @@ createServer({
                 return new Response(404, { some: 'header' }, { errors: ['Resource not found'] })
             }
             return schema.hikes.find(id).models
-        })
+        }, { timing: 1000 })
 
         this.post("/login", (schema, request) => {
             const { username, password } = JSON.parse(request.requestBody)
