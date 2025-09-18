@@ -1,7 +1,8 @@
 import { useContext, useState } from 'react';
 import './Login.css';
-import { login } from '../../services/api';
-import { AppContext } from '../layout/Layout';
+import { login } from '../../../services/api';
+import { AppContext } from '../../layout/AppLayout/AppLayout';
+import { ERROR_MESSAGES } from '../../../constants';
 
 const Login = ({onClose}) => {
   const [username, setUsername] = useState('')
@@ -46,7 +47,7 @@ const Login = ({onClose}) => {
         />
         <button type="submit" className='login__btn'>Login</button>
       </form>
-      {loginError && <p className='login__error'>Invalid username or password</p>}
+      {loginError && <p className='login__error'>{ERROR_MESSAGES.LOGIN_FAILED}</p>}
     </div>
   );
 };

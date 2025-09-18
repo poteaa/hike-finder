@@ -1,4 +1,5 @@
 import { storeToken, removeToken } from "./authService"
+import { API_ENDPOINTS } from "../constants"
 
 async function fetchData(url, options) {
     const res = await fetch(url, options)
@@ -10,12 +11,12 @@ async function fetchData(url, options) {
 }
 
 export async function getHikes() {
-    const url = `/api/hikes`
+    const url = API_ENDPOINTS.HIKES
     return fetchData(url)
 }
 
 export async function getHikesByCity(city) {
-    const url = `/api/hikes?city=${city}`
+    const url = `${API_ENDPOINTS.HIKES}?city=${city}`
     return fetchData(url)
 }
 
@@ -28,7 +29,7 @@ export async function login(username, password) {
         body: JSON.stringify({ username, password })
     };
     try {
-        const data = await fetchData("/api/login/", options);
+        const data = await fetchData(API_ENDPOINTS.LOGIN, options);
 
         // Assuming the token is returned in the response data
         const token = data.token

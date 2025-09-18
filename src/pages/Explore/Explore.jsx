@@ -1,4 +1,4 @@
-import ExploreCard from "../../components/ExploreCard/ExploreCard"
+import ExploreCard from "../../components/cards/ExploreCard/ExploreCard"
 
 import './Explore.css'
 import mapNotFoundKey from '/src/assets//map-not-found-key.png'; // Import the image for API key not found

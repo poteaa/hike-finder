@@ -1,23 +1,93 @@
-# coe174797b760f96e688fc0b6
+# Hike Finder - Project Structure
 
-Warning: Vite enforces using jsx syntax inside jsx/tsx files, so it will complain about that. Solution: rename `.js` files to `.jsx` :)
-
-Quick start:
+## Directory Structure
 
 ```
-$ npm install
-$ npm start
-````
+src/
+├── components/          # React components
+│   ├── auth/           # Authentication components
+│   ├── ExploreCard/    # Explore page card component
+│   ├── HikeCard/       # Hike display card component
+│   ├── InfoCard/       # Information card component
+│   ├── layout/         # Layout components (Header, Footer, etc.)
+│   ├── loadingSpinner/ # Loading spinner component
+│   ├── Modal/          # Modal component (fixed casing)
+│   └── Search/         # Search component
+├── constants/          # App-wide constants
+│   └── index.js        # API endpoints, UI constants, error messages
+├── hooks/              # Custom React hooks
+│   ├── useApi.js       # API call hook with loading/error states
+│   └── useLocalStorage.js # LocalStorage management hook
+├── pages/              # Page components
+│   ├── Explore/        # Explore page
+│   └── Home/           # Home page
+├── services/           # API and external services
+│   ├── api.js          # API functions
+│   └── authService.js  # Authentication utilities
+└── utils/              # Utility functions
+    └── index.js        # Helper functions (formatting, debounce, etc.)
+```
 
-Head over to https://vitejs.dev/ to learn more about using vite
-## About Scrimba
+## Key Improvements Made
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Frontend Developer Career Path aims to teach you everything you need to become a Junior Developer, or you could take a deep-dive with one of our advanced courses 🚀
+### 1. **Fixed Component Casing**
+- Moved `modal/` → `Modal/` for consistency
+- Updated all import statements
 
-- [Our courses](https://scrimba.com/allcourses)
-- [The Frontend Career Path](https://scrimba.com/learn/frontend)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
+### 2. **Added Missing Directories**
+- `constants/` - Centralized app constants
+- `hooks/` - Custom React hooks
+- `utils/` - Utility functions
 
-Happy Coding!
+### 3. **Centralized Constants**
+- API endpoints in one place
+- Error messages standardized
+- UI constants for consistent styling
+
+### 4. **Custom Hooks**
+- `useApi` - Handles API calls with loading/error states
+- `useLocalStorage` - Manages localStorage with React state
+
+### 5. **Utility Functions**
+- Formatting helpers (distance, time)
+- Debounce function for search
+- String utilities
+
+## Usage Examples
+
+### Using Constants
+```javascript
+import { API_ENDPOINTS, ERROR_MESSAGES } from '../constants'
+
+// Instead of hardcoded strings
+const url = API_ENDPOINTS.HIKES
+const errorMsg = ERROR_MESSAGES.LOGIN_FAILED
+```
+
+### Using Custom Hooks
+```javascript
+import { useApi } from '../hooks/useApi'
+import { getHikes } from '../services/api'
+
+// In your component
+const { data: hikes, loading, error } = useApi(getHikes)
+```
+
+### Using Utilities
+```javascript
+import { formatDistance, debounce } from '../utils'
+
+// Format distance for display
+const displayDistance = formatDistance(2.5) // "2.5km"
+
+// Debounce search input
+const debouncedSearch = debounce(handleSearch, 300)
+```
+
+## Benefits
+
+1. **Maintainability** - Centralized constants and utilities
+2. **Reusability** - Custom hooks can be used across components
+3. **Consistency** - Standardized error messages and API endpoints
+4. **Scalability** - Clear structure for adding new features
+5. **Developer Experience** - Better organization and easier navigation

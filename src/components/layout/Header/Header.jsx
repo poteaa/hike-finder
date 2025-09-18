@@ -1,11 +1,12 @@
 import { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-import { AppContext } from '../Layout'
+import { AppContext } from '../AppLayout/AppLayout'
 import Hamburger from '../Hamburger/Hamburger'
 
 import './Header.css'
 
+// eslint-disable-next-line react/prop-types
 export default function Header({ onLoginClick }) {
     const { isLoggedIn } = useContext(AppContext)
     return (
@@ -33,4 +34,3 @@ export default function Header({ onLoginClick }) {
         </header>  
     )
 }
-

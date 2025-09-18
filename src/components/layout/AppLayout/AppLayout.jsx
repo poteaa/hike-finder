@@ -1,19 +1,19 @@
 import { createContext, useState } from "react"
 import { Outlet, Link, useLocation } from "react-router-dom"
-import InfoCard from "../InfoCard/InfoCard"
-import Search from "../Search/Search"
-import Login from "../auth/Login"
-import { logout } from "../../services/api"
+import InfoCard from '../../common/InfoCard/InfoCard'
+import Search from '../../common/Search/Search'
+import Login from "../../auth/Login/Login"
+import { logout } from "../../../services/api"
 
-import Header from './Header/Header'
-import Footer from './Footer/Footer'
-import Modal from '../modal/Modal'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
+import Modal from '../../common/Modal/Modal' 
 
-import './Layout.css'
+import './AppLayout.css'
 
 const AppContext = createContext()
 
-export default function Layout() {
+export default function AppLayout() {
     const [search, setSearch] = useState()
     const [showModal, setShowModal] = useState(false)
     const [isLoggedIn, setIsLoggedIn] = useState(false)

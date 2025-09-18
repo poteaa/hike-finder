@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import './Hamburger.css'
 
+// eslint-disable-next-line react/prop-types
 export default function Hamburger({ onLoginClick }) {
     const [isOpen, setIsOpen] = useState(false)
     const menuId = useId()

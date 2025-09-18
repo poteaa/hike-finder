@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import './App.css'
-
-import Layout from './components/layout/Layout'
+import AppLayout from './components/layout/AppLayout/AppLayout'
 import Home from './pages/Home/Home'
 import Explore from './pages/Explore/Explore'
 
@@ -12,10 +10,10 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="explore" element={<Explore />} />
-            </Route>
+          <Route path="/" element={<AppLayout />}>
+            <Route index element={<Home />} />
+            <Route path="explore" element={<Explore />} />
+          </Route>
         </Routes>
     </BrowserRouter>
   )
