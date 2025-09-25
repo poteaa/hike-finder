@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './HikeCard.css'
 
+// eslint-disable-next-line react/prop-types
 export default function HikeCard({id, name, city, distance, estimated, description, imgSrc, invert}) {
     return (
         <article className={`hike-card ${invert ? 'invert': ''}`}>

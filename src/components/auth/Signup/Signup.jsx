@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Signup.css';
 
+// eslint-disable-next-line react/prop-types
 const Signup = ({onClose, onSwitchToLogin}) => {
   const [formData, setFormData] = useState({
     username: '',

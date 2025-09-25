@@ -1,5 +1,6 @@
 import './ExploreCard.css'
 
+// eslint-disable-next-line react/prop-types
 export default function ExploreCard({title, difficulty, rate, numberOfRates, description, thumbSrc}) {
     return (
         <div className="explore-card">

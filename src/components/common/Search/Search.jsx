@@ -2,10 +2,12 @@ import { useRef, useCallback } from 'react'
 import { debounce } from '../../../utils'
 import './Search.css'
 
+// eslint-disable-next-line react/prop-types
 export default function Search({searchCb}) {
     const search = useRef('')
 
     // Debounced search function
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const debouncedSearch = useCallback(
         debounce((value) => {
             searchCb(value)
