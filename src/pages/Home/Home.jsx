@@ -15,11 +15,12 @@ export default function Home() {
 
     useEffect(() => {
         async function fetchData() {
+            setLoading(true)
             let data
             let city
-            if (search) ([data, city] = await getHikesByCity(search))
+            if (search) data = await getHikesByCity(search)
             else data = await getHikes()
-            city ? setCity(city) : setCity('')
+            city ? setCity(search) : setCity('')
             setHikes(data)
             setLoading(false)
         }

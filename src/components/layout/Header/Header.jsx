@@ -7,7 +7,7 @@ import Hamburger from '../Hamburger/Hamburger'
 import './Header.css'
 
 // eslint-disable-next-line react/prop-types
-export default function Header({ onLoginClick }) {
+export default function Header({ onLoginClick, onSignupClick }) {
     const { isLoggedIn } = useContext(AppContext)
     return (
         <header className="header container">
@@ -23,14 +23,14 @@ export default function Header({ onLoginClick }) {
                         <NavLink to="/explore" className="header__menu-link">EXPLORE</NavLink>
                     </li>
                     <li>
-                        <button className="header__menu-link link-btn">SIGN UP</button>
+                        <button className="header__menu-link link-btn" onClick={onSignupClick}>SIGN UP</button>
                     </li>
                     <li>
                         <button className="header__menu-link link-btn" onClick={onLoginClick}>{isLoggedIn ? 'LOG OUT' : 'LOG IN'}</button>
                     </li>
                 </ul>
             </nav>
-            <Hamburger onLoginClick={onLoginClick} />
+            <Hamburger onLoginClick={onLoginClick} onSignupClick={onSignupClick} />
         </header>  
     )
 }

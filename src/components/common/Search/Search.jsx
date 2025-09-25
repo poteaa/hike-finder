@@ -1,21 +1,22 @@
-import { useRef } from 'react'
+import { useRef, useCallback } from 'react'
+import { debounce } from '../../../utils'
 import './Search.css'
 
 export default function Search({searchCb}) {
     const search = useRef('')
 
-    // const debounce = (event, delay) => {
-    //     let timer
-    //     return function(...args) {
-    //         clearTimeout(timer)
-    //         timer = setTimeout(() => {
-    //             setSearch(args[0].target.value)
-    //         }, delay);
-    //     }
-    // }
+    // Debounced search function
+    const debouncedSearch = useCallback(
+        debounce((value) => {
+            searchCb(value)
+        }, 500), // 500ms delay
+        [searchCb]
+    )
 
-    const hadleInput = (event) =>  {
-        search.current = event.target.value
+    const handleInput = (event) => {
+        const value = event.target.value
+        search.current = value
+        debouncedSearch(value)
     }
 
     const handleSubmit = (event) => {
@@ -26,13 +27,13 @@ export default function Search({searchCb}) {
     return (
         <div className="search">
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    onInput={hadleInput}
-                    placeholder="Search by city"
-                    className="search__criteria" />
-                <div className="search__btn-container">
-                    <button className="search__btn" >SEARCH</button>
+                <div className="search__input-container">
+                    <span className="search__icon">🔍</span>
+                    <input
+                        type="text"
+                        onInput={handleInput}
+                        placeholder="Search by city"
+                        className="search__criteria" />
                 </div>
             </form>
         </div>

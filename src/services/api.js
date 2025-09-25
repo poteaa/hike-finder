@@ -15,6 +15,11 @@ export async function getHikes() {
     return fetchData(url)
 }
 
+export async function getHikeById(id) {
+    const url = `${API_ENDPOINTS.HIKES}/${id}`
+    return fetchData(url)
+}
+
 export async function getHikesByCity(city) {
     const url = `${API_ENDPOINTS.HIKES}?city=${city}`
     return fetchData(url)

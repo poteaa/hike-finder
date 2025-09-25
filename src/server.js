@@ -80,7 +80,7 @@ createServer({
             if (!hike) {
                 return new Response(404, { some: 'header' }, { errors: ['Resource not found'] })
             }
-            return schema.hikes.find(id).models
+            return hike.attrs
         }, { timing: 1000 })
 
         this.post("/login", (schema, request) => {

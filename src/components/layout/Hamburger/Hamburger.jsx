@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import './Hamburger.css'
 
 // eslint-disable-next-line react/prop-types
-export default function Hamburger({ onLoginClick }) {
+export default function Hamburger({ onLoginClick, onSignupClick }) {
     const [isOpen, setIsOpen] = useState(false)
     const menuId = useId()
 
@@ -39,7 +39,12 @@ export default function Hamburger({ onLoginClick }) {
                         <NavLink to="/explore" className="hamburger-menu__link">EXPLORE</NavLink>
                     </li>
                     <li>
-                        <button className="hamburger-menu__link hamburger-menu__btn">SIGN UP</button>
+                        <button 
+                            className="hamburger-menu__link hamburger-menu__btn"
+                            onClick={onSignupClick}
+                        >
+                            SIGN UP
+                        </button>
                     </li>
                     <li>
                         <button

@@ -1,7 +1,7 @@
-.login {
+.signup {
   position: relative;
   background: var(--white);
-  width: 400px;
+  width: 450px;
   max-width: 90vw;
   padding: 2rem;
   font-size: 1rem;
@@ -10,7 +10,7 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.login__close {
+.signup__close {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -30,26 +30,39 @@
   transition: all 0.3s ease;
 }
 
-.login__close:hover {
+.signup__close:hover {
   background: var(--light-gray-1);
   color: var(--dark-gray);
 }
 
-.login__title {
+.signup__title {
   font-weight: 700;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   font-size: 1.8rem;
   color: var(--dark-gray);
 }
 
-.login__form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.signup__subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: var(--dark-gray-2);
+  line-height: 1.4;
 }
 
-.login__form label {
+.signup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.signup__field {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup__form label {
   font-weight: 600;
   color: var(--dark-gray);
   font-size: 0.9rem;
@@ -58,7 +71,7 @@
   margin-bottom: 0.25rem;
 }
 
-.login__input {
+.signup__input {
   height: 48px;
   font-size: 1rem;
   padding: 0 1rem;
@@ -70,18 +83,34 @@
   font-family: inherit;
 }
 
-.login__input:focus {
+.signup__input:focus {
   outline: none;
   border-color: var(--green-hike);
   box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
 }
 
-.login__input::placeholder {
+.signup__input--error {
+  border-color: #dc2626;
+}
+
+.signup__input--error:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.signup__input::placeholder {
   color: var(--dark-gray-2);
   opacity: 0.7;
 }
 
-.login__btn {
+.signup__error {
+  margin-top: 0.25rem;
+  color: #dc2626;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.signup__btn {
   margin-top: 0.5rem;
   padding: 0.75rem 1.5rem;
   font-weight: 600;
@@ -96,45 +125,40 @@
   letter-spacing: 0.5px;
 }
 
-.login__btn:hover {
+.signup__btn:hover:not(:disabled) {
   background: var(--green-hike-2);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
 }
 
-.login__btn:active {
+.signup__btn:active:not(:disabled) {
   transform: translateY(0);
 }
 
-.login__error {
-  margin-top: 1rem;
-  color: #dc2626;
-  font-size: 0.9rem;
-  text-align: center;
-  background: #fef2f2;
-  padding: 0.75rem;
-  border-radius: 6px;
-  border: 1px solid #fecaca;
+.signup__btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.login__link {
+.signup__link {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   font-size: 0.9rem;
   color: var(--dark-gray-2);
 }
 
-.login__link a {
+.signup__link a {
   color: var(--green-hike);
   text-decoration: none;
   font-weight: 600;
 }
 
-.login__link a:hover {
+.signup__link a:hover {
   text-decoration: underline;
 }
 
-.login__link-btn {
+.signup__link-btn {
   background: none;
   border: none;
   color: var(--green-hike);
@@ -146,6 +170,22 @@
   font-family: inherit;
 }
 
-.login__link-btn:hover {
+.signup__link-btn:hover {
   text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .signup {
+    width: 95vw;
+    padding: 1.5rem;
+  }
+  
+  .signup__title {
+    font-size: 1.5rem;
+  }
+  
+  .signup__subtitle {
+    font-size: 0.9rem;
+  }
 }

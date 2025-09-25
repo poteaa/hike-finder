@@ -3,6 +3,7 @@ import { Outlet, Link, useLocation } from "react-router-dom"
 import InfoCard from '../../common/InfoCard/InfoCard'
 import Search from '../../common/Search/Search'
 import Login from "../../auth/Login/Login"
+import Signup from "../../auth/Signup/Signup"
 import { logout } from "../../../services/api"
 
 import Header from '../Header/Header'
@@ -16,6 +17,7 @@ const AppContext = createContext()
 export default function AppLayout() {
     const [search, setSearch] = useState()
     const [showModal, setShowModal] = useState(false)
+    const [modalType, setModalType] = useState('login') // 'login' or 'signup'
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     console.log('rendering layout...')
     const location = useLocation()
@@ -26,13 +28,31 @@ export default function AppLayout() {
             setIsLoggedIn(false)
             logout()
         } else {
+            setModalType('login')
             setShowModal(true)
         }
     }
 
+    const handleSignup = () => {
+        setModalType('signup')
+        setShowModal(true)
+    }
+
+    const closeModal = () => {
+        setShowModal(false)
+    }
+
+    const switchToSignup = () => {
+        setModalType('signup')
+    }
+
+    const switchToLogin = () => {
+        setModalType('login')
+    }
+
     return (
         <AppContext.Provider value={{search, isLoggedIn, setIsLoggedIn}}>
-            <Header onLoginClick={handleLogin} />
+            <Header onLoginClick={handleLogin} onSignupClick={handleSignup} />
             <main>
                 <section className="hero">
                     <div className="hero__cover container">
@@ -52,7 +72,7 @@ export default function AppLayout() {
                     <InfoCard
                         iconSrc="/src/assets/bell.png"
                         title="Sign up for Notifications">
-                        <Link to="/signup">Sign up</Link> to get conditions alerts, information on pop-up events and interesting stories.
+                        <button onClick={handleSignup} style={{background: 'none', border: 'none', color: 'var(--green-hike)', cursor: 'pointer', textDecoration: 'none'}}>Sign up</button> to get conditions alerts, information on pop-up events and interesting stories.
                     </InfoCard>
                     <InfoCard
                         iconSrc="/src/assets/location.png"
@@ -67,9 +87,15 @@ export default function AppLayout() {
                 </section>
             </main>
             <Footer />
-            {showModal && <Modal isOpen={showModal} closeModal={() => setShowModal(false)}>
-                <Login onClose={() => setShowModal(false)}></Login>
-            </Modal>}
+            {showModal && (
+                <Modal isOpen={showModal} closeModal={closeModal}>
+                    {modalType === 'login' ? (
+                        <Login onClose={closeModal} onSwitchToSignup={switchToSignup} />
+                    ) : (
+                        <Signup onClose={closeModal} onSwitchToLogin={switchToLogin} />
+                    )}
+                </Modal>
+            )}
         </AppContext.Provider>
     )
 }
