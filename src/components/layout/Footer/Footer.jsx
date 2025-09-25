@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import footerLogo from '../../../assets/logo-footer.svg'
 
 import './Footer.css'
 
@@ -22,7 +23,7 @@ export default function Footer() {
                 </ul>
             </nav>
             <div>
-                <img src="/src/assets/logo-footer.svg" className="footer__logo" />
+                <img src={footerLogo} className="footer__logo" />
                 <p className="footer__copyright">Copyright 2022. HikeFinder</p>
             </div>
         </footer>

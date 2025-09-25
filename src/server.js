@@ -1,5 +1,12 @@
 import { createServer, Model } from "miragejs"
 
+// Import images so Vite can process them
+import floyenImg from '../assets/floyen.png'
+import ulrikenImg from '../assets/ulriken.png'
+import landasfjelletImg from '../assets/Landasfjellet.png'
+import guatavitaImg from '../assets/guatavita-lake.jpg'
+import nemoconImg from '../assets/nemocon-salt-mine.jpg'
+
 createServer({
     models: {
         hikes: Model,
@@ -14,7 +21,7 @@ createServer({
             distance: "10.2 km",
             estimated: "5 h",
             description: "Fløibanen is one of Norway's most visited attractions. At the top of Fløyen you will find a large and varied hiking area, spectacular views of the city.",
-            imgSrc: "/src/assets/floyen.png"
+            imgSrc: floyenImg
         })
         server.create("hike", {
             id: "2",
@@ -24,7 +31,7 @@ createServer({
             distance: "3.5 km",
             estimated: " 2 h 30 m",
             description: "Ulriken is the highest of the Seven Mountains that surround the city of Bergen, Norway. It has a height of 643 meters (2,110 ft) above sea level.",
-            imgSrc: "/src/assets/ulriken.png"
+            imgSrc: ulrikenImg
         })
         server.create("hike", {
             id: "3",
@@ -34,7 +41,7 @@ createServer({
             distance: "4.3 km",
             estimated: "1 h 25 m",
             description: "Landåsfjellet is a lower plateau south of Ulriken/Haugavarden which offers numerous trails, and is almost a separate hiking region by its own.",
-            imgSrc: "/src/assets/Landasfjellet.png"
+            imgSrc: landasfjelletImg
         })
         server.create("hike", {
             id: "4",
@@ -44,7 +51,7 @@ createServer({
             distance: "4.3 km",
             estimated: "1 h 25 m",
             description: "Landåsfjellet is a lower plateau south of Ulriken/Haugavarden which offers numerous trails, and is almost a separate hiking region by its own.",
-            imgSrc: "/src/assets/guatavita-lake.jpg"
+            imgSrc: guatavitaImg
         })
         server.create("hike", {
             id: "5",
@@ -54,7 +61,7 @@ createServer({
             distance: "4.3 km",
             estimated: "1 h 25 m",
             description: "Landåsfjellet is a lower plateau south of Ulriken/Haugavarden which offers numerous trails, and is almost a separate hiking region by its own.",
-            imgSrc: "/src/assets/nemocon-salt-mine.jpg"
+            imgSrc: nemoconImg
         })
         server.create("user", {
             id: "1",

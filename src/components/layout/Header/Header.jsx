@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 import { AppContext } from '../AppLayout/AppLayout'
 import Hamburger from '../Hamburger/Hamburger'
+import logo from '../../../assets/hike-finder-logo.svg'
 
 import './Header.css'
 
@@ -12,7 +13,7 @@ export default function Header({ onLoginClick, onSignupClick }) {
     return (
         <header className="header container">
             <Link to="/" className='header__link'>
-                <img src="/src/assets/hike-finder-logo.svg" className='header__icon'/>
+                <img src={logo} className='header__icon'/>
             </Link>
             <nav className="header__main-nav">
                 <ul className="header__menu-list">

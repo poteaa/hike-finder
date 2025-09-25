@@ -10,6 +10,11 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Modal from '../../common/Modal/Modal' 
 
+// Import images
+import bellIcon from '../../../assets/bell.png'
+import locationIcon from '../../../assets/location.png'
+import shareIcon from '../../../assets/share.png'
+
 import './AppLayout.css'
 
 const AppContext = createContext()
@@ -70,17 +75,17 @@ export default function AppLayout() {
                 <Outlet />
                 <section className="more-info container">
                     <InfoCard
-                        iconSrc="/src/assets/bell.png"
+                        iconSrc={bellIcon}
                         title="Sign up for Notifications">
                         <button onClick={handleSignup} style={{background: 'none', border: 'none', color: 'var(--green-hike)', cursor: 'pointer', textDecoration: 'none'}}>Sign up</button> to get conditions alerts, information on pop-up events and interesting stories.
                     </InfoCard>
                     <InfoCard
-                        iconSrc="/src/assets/location.png"
+                        iconSrc={locationIcon}
                         title="Get the HikeFinder App">
                         <Link to="/">Download the app</Link> to get the most out of every minute outdoors with offline maps and more!
                     </InfoCard>
                     <InfoCard
-                        iconSrc="/src/assets/share.png"
+                        iconSrc={shareIcon}
                         title="Share Trails">
                         <Link to="/">Share your hiking adventures</Link> with the community and keep a record of your travels.
                     </InfoCard>
